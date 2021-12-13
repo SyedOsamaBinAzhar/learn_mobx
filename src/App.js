@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react"
+import { useLocalStore, useObserver, observer } from 'mobx-react';
+import { StoreContext,StoreProvider } from "./Context/AppContext";
+import BugsHeader from "./Components/BugsHeader";
+import BugsList from "./Components/BugsList";
+import BugsForm from "./Components/BugsForm";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StoreProvider>
+      <main>
+        <BugsHeader/>
+        <BugsList/>
+        <BugsForm/>
+      </main>
+    </StoreProvider>
   );
 }
 
